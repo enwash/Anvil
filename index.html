@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Anvil</title>
+  </head>
+  <body>
+    <div class="titlebar">
+    <ul class="tabs">
+      <li id="models" class="selected"><a>Models</a></li>
+      <li id="blockstates"><a>Blockstates</a></li>
+      <li id="recipes"><a>Recipes</a></li>
+      <!--<li id="loottables"><a>Loot tables</a></li>-->
+    </ul>
+      <ul class="appbtns">
+        <li id="minimize"><a>&mdash;</a></li>
+        <li id="maximize"><a>&#128470;</a></li>
+        <li id="close"><a>&#10005;</a></li>
+      </ul>
+    </div>
+    <div class="cont" id="tabmodels">
+      <h1>Models</h1>
+      <!--<input type="checkbox" id="doBlockstate"><label for="doBlockstate">Generate blockstate</label>-->
+      <select id="modelParent">
+        <option disabled value="block/cube_all">Blocks</option>
+        <option selected value="block/cube_all">Basic cube</option>
+        <option value="block/orientable">Orientable (furnace)</option>
+        <option value="block/cube_column">Column (log)</option>
+        <option value="block/template_torch">Torch</option>
+        <option value="block/template_torch">Cross (flower)</option>
+        <option value="block/crop">Crop</option>
+        <option value="block/rail_flat">Flat (rail)</option>
+        <option value="block/carpet">Carpet</option>
+        <option disabled value="item/generated">Items</option>
+        <option value="item/generated">Default</option>
+        <option value="block/{block}">Block item</option>
+      </select>
+      <div id="modelOptions">
+      </div>
+      <button id="generateModel">Generate</button>
+    </div>
+    <div class="cont" id="tabblockstates">
+      <h1>Blockstates</h1>
+    </div>
+    <div class="cont" id="tabrecipes">
+      <h1>Recipes</h1>
+    </div>
+    <!--<div class="cont" id="tabloottables">
+      <h1>Loot tables</h1>
+    </div>-->
+    <script src="./qwik.min.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
