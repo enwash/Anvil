@@ -187,6 +187,7 @@ select {
   padding: 8px 10px;
   width: 100%;
   box-sizing: border-box;
+  max-width: 800px;
   /* outline: none; */
 }
 
@@ -197,6 +198,7 @@ option:hover {
 #modelOptions {
   padding: 0;
   width: 100%;
+  max-width: 800px;
 }
 
 #modelOptions input[type=text] {
@@ -218,6 +220,7 @@ input[type=text] {
   outline: none;
   font-size: 16px;
   width: 60%;
+  max-width: 450px;
 }
 
 input[type=text]:focus {
@@ -235,6 +238,7 @@ input[type=text]:focus {
   box-sizing: border-box;
   outline: none;
   min-width: 120px;
+  max-width: 300px;
 }
 
 #generateModel:focus, #generateModel:hover {
