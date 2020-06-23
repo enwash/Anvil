@@ -5,16 +5,16 @@ const path = require('path')
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 600,
-    height: 350,
+    width: 720,
+    height: 550,
     webPreferences: {
       //preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true
     },
     frame: false,
     transparent: true,
-    minHeight: 350,
-    minWidth: 600
+    minHeight: 550,
+    minWidth: 720
    });
 
   // and load the index.html of the app.

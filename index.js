@@ -171,5 +171,43 @@ q.get('#generateBlockstate').on('click',e => {
   require('fs').writeFileSync(wpath, JSON.stringify(dat,null,'\t')); // remove second two params if you don't want pretty printing. global options for this in the future
 });
 
+let rTypes = {
+  'minecraft:crafting_shaped': {
+    'btn': 'Add item key',
+    'type': 'key' // key/value
+  },
+  'minecraft:crafting_shapeless': {
+    'btn': 'Add ingredient',
+    'type': 'lst' // ingredient list
+  },
+  'minecraft:smelting': {
+    'btn': false,
+    'type': 'sng' // single ingredient
+  }
+}
+
+q.forAll('#shapedLayout input',x=>{
+  x.on('click',e=>e.target.select());
+  x.on('keyup',e=>e.target.value=e.target.value.toLowerCase())
+})
+
+q.get('#recipeType').on('change',e=>{
+  q.get('#recipeOpts').innerHTML='';
+  btn=rTypes[q.get('#recipeType').value]['btn'];
+  if (btn != false) {
+    q.get('#recipeAddMulti').innerHTML = btn;
+      q.get('#recipeAddMulti').classList.remove('hideme');
+  }
+  else {
+    q.get('#recipeAddMulti').classList.add('hideme');
+  }
+  q.get('#recipeOpts').innerHTML += '<div><label for="recipeResult">Result item:&nbsp;</label> <input type="text" placeholder="modid:example_item" id="recipeResult"></div><br>';
+  q.get('#recipeOpts').innerHTML += '<div><label for="recipeResultCount">Result count:&nbsp;</label> <input type="number" placeholder="1" id="recipeResultCount"></div>';
+});
+
+q.get('#recipeAddMulti').on('click',e=>{
+
+})
+
 updateModelFields();
 mpBox.on('change',updateModelFields);

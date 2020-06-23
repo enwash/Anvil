@@ -207,7 +207,7 @@ option:hover {
   max-width: 800px;
 }
 
-.opts input[type=text] {
+.opts input[type=text], .opts input[type=number] {
   float: right;
   text-align: right;
 }
@@ -218,7 +218,7 @@ option:hover {
   margin-top: 20px;
 }
 
-input[type=text] {
+input[type=text], input[type=number] {
   border: none;
   border-bottom: 1px solid white;
   color: white;
@@ -229,7 +229,7 @@ input[type=text] {
   max-width: 450px;
 }
 
-input[type=text]:focus {
+input[type=text]:focus, input[type=number]:focus {
   border-bottom: 1px solid var(--sec);
 }
 
@@ -256,4 +256,38 @@ input[type=text]:focus {
   background: var(--sec);
   border: 1px solid var(--sec);
   color: var(--bg);
+}
+
+.hideme {
+  display: none !important;
+}
+
+#shapedLayout {
+  width: 60px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#shapedLayout input {
+  display: inline-block;
+  width: 15px;
+  text-align: center;
+}
+
+#recipeOpts {
+  width: 100%;
+}
+
+#recipeOpts input[type=number] {
+  width: 10%;
+  min-width: 25px;
+}
+
+#recipeOpts input {
+  float: right;
+}
+
+#recipeOpts div {
+  margin-top: 10px;
+  display: block;
 }
