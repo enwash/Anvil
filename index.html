@@ -49,12 +49,21 @@
         <option value="item/generated">Basic item</option>
         <option value="block/{block}">Block item</option>
       </select>
-      <div id="modelOptions">
+      <div id="modelOptions" class="opts">
       </div>
-      <button id="generateModel">Generate</button>
+      <button id="generateModel" class="btn">Generate</button>
     </div>
     <div class="cont" id="tabblockstates">
       <h1>Blockstates</h1>
+      <!-- <h2>Properties</h2> -->
+      <input type="checkbox" id="doFacing"><label for="doFacing">Facing (cardinal)</label>&nbsp;
+      <input type="checkbox" id="doPowered"><label for="doPowered">Powered</label>
+      <br>
+      <div class="opts">
+        <div class="modopt"><label for="blockstateModel">Model:&nbsp;</label> <input type="text" placeholder="modid:block/example" id="blockstateModel"></div>
+        <div class="modopt" id="blockstatePowered"></div>
+      </div>
+      <button id="generateBlockstate" class="btn">Generate</button>
     </div>
     <div class="cont" id="tabrecipes">
       <h1>Recipes</h1>

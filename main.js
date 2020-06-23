@@ -20,7 +20,7 @@ function createWindow () {
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
   mainWindow.removeMenu();
-  //mainWindow.openDevTools();
+  // mainWindow.openDevTools();
 
 //   mainWindow.on('close', function(e) {
 //   const choice = require('electron').dialog.showMessageBoxSync(this,

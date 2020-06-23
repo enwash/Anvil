@@ -117,6 +117,11 @@ h1 {
   margin-bottom: 10px;
 }
 
+h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
 .tabs {
   list-style: none;
   position: absolute;
@@ -172,6 +177,7 @@ h1 {
 
 input[type=checkbox] {
   transform: scale(1.2) translateY(.5px);
+  margin-top: 10px;
 }
 
 label {
@@ -195,13 +201,13 @@ option:hover {
   background: var(--pri);
 }
 
-#modelOptions {
+.opts {
   padding: 0;
   width: 100%;
   max-width: 800px;
 }
 
-#modelOptions input[type=text] {
+.opts input[type=text] {
   float: right;
   text-align: right;
 }
@@ -209,7 +215,7 @@ option:hover {
 .modopt {
   display: block;
   margin: 0;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 input[type=text] {
@@ -227,7 +233,7 @@ input[type=text]:focus {
   border-bottom: 1px solid var(--sec);
 }
 
-#generateModel {
+.btn {
   margin-top: 20px;
   background: transparent;
   color: white;
@@ -241,12 +247,12 @@ input[type=text]:focus {
   max-width: 300px;
 }
 
-#generateModel:focus, #generateModel:hover {
+.btn:focus, .btn:hover {
   border: 1px solid var(--sec);
   color: var(--sec);
 }
 
-#generateModel:active {
+.btn:active {
   background: var(--sec);
   border: 1px solid var(--sec);
   color: var(--bg);

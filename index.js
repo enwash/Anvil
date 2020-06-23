@@ -114,6 +114,10 @@ let updateModelFields = e => {
   }
 }
 
+q.get('#doPowered').on('change',e=>{
+  q.get('#blockstatePowered').innerHTML = q.get('#doPowered').checked ? '<label for="blockstateModelOn">Model (powered):&nbsp;</label> <input type="text" placeholder="modid:block/example_on" id="blockstateModelOn">' : '';
+});
+
 q.get('#generateModel').on('click',e => {
   let dat;
   let mainName = 'model';
@@ -129,6 +133,41 @@ q.get('#generateModel').on('click',e => {
     }
   }
   let wpath = dialog.showSaveDialogSync({'title':'Anvil - Save model','defaultPath':`${mainName}`,'filters':[{'name':'Minecraft Java model (.json)','extensions':['json']}]});
+  require('fs').writeFileSync(wpath, JSON.stringify(dat,null,'\t')); // remove second two params if you don't want pretty printing. global options for this in the future
+});
+
+q.get('#generateBlockstate').on('click',e => {
+  let dat = {"variants":{}};
+  if (q.get('#doPowered').checked) {
+    if (q.get('#doFacing').checked) {
+      dat['variants']['powered=true,facing=north'] = { 'model': q.get('#blockstateModelOn').value };
+      dat['variants']['powered=true,facing=south'] = { 'model': q.get('#blockstateModelOn').value, 'y': 180 };
+      dat['variants']['powered=true,facing=west'] = { 'model': q.get('#blockstateModelOn').value, 'y': 270 };
+      dat['variants']['powered=true,facing=east'] = { 'model': q.get('#blockstateModelOn').value, 'y': 90 };
+
+      dat['variants']['powered=false,facing=north'] = { 'model': q.get('#blockstateModel').value };
+      dat['variants']['powered=false,facing=south'] = { 'model': q.get('#blockstateModel').value, 'y': 180 };
+      dat['variants']['powered=false,facing=west'] = { 'model': q.get('#blockstateModel').value, 'y': 270 };
+      dat['variants']['powered=false,facing=east'] = { 'model': q.get('#blockstateModel').value, 'y': 90 };
+    }
+    else {
+      dat['variants']['powered=true'] = { 'model': q.get('#blockstateModelOn').value };
+      dat['variants']['powered=false'] = { 'model': q.get('#blockstateModel').value };
+    }
+  }
+  else {
+    if (q.get('#doFacing').checked) {
+      dat['variants']['facing=north'] = { 'model': q.get('#blockstateModel').value };
+      dat['variants']['facing=south'] = { 'model': q.get('#blockstateModel').value, 'y': 180 };
+      dat['variants']['facing=west'] = { 'model': q.get('#blockstateModel').value, 'y': 270 };
+      dat['variants']['facing=east'] = { 'model': q.get('#blockstateModel').value, 'y': 90 };
+    }
+    else {
+      dat['variants'][''] = { 'model': q.get('#blockstateModel').value };
+    }
+  }
+  let mainName = q.get('#blockstateModel').value.substring(q.get('#blockstateModel').value.indexOf('/')+1,q.get('#blockstateModel').value.length)
+  let wpath = dialog.showSaveDialogSync({'title':'Anvil - Save blockstate','defaultPath':`${mainName}`,'filters':[{'name':'Minecraft Java blockstate (.json)','extensions':['json']}]});
   require('fs').writeFileSync(wpath, JSON.stringify(dat,null,'\t')); // remove second two params if you don't want pretty printing. global options for this in the future
 });
 
