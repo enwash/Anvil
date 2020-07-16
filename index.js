@@ -191,7 +191,7 @@ q.forAll('#shapedLayout input',x=>{
   x.on('keyup',e=>e.target.value=e.target.value.toLowerCase())
 })
 
-q.get('#recipeType').on('change',e=>{
+let recipeChange = e=>{
   q.get('#recipeOpts').innerHTML='';
   btn=rTypes[q.get('#recipeType').value]['btn'];
   if (btn != false) {
@@ -201,12 +201,23 @@ q.get('#recipeType').on('change',e=>{
   else {
     q.get('#recipeAddMulti').classList.add('hideme');
   }
-  q.get('#recipeOpts').innerHTML += '<div><label for="recipeResult">Result item:&nbsp;</label> <input type="text" placeholder="modid:example_item" id="recipeResult"></div><br>';
-  q.get('#recipeOpts').innerHTML += '<div><label for="recipeResultCount">Result count:&nbsp;</label> <input type="number" placeholder="1" id="recipeResultCount"></div>';
-});
+  q.get('#recipeOpts').innerHTML += '<div><label for="recipeResult">Result:&nbsp;</label><input type="number" value="1" min="1" placeholder="1" id="recipeResultCount"><input type="text" placeholder="modid:example_item" id="recipeResult"></div>';
+  if (rTypes[q.get('#recipeType').value]['type'] == 'key') {
+    q.get('#shapedLayout').classList.remove('hideme');
+    q.get('#recipeOpts').innerHTML+="<h2>Key</h2>";
+  }
+  else {
+    q.get('#shapedLayout').classList.add('hideme');
+  }
+}
+
+q.get('#recipeType').on('change',recipeChange);
+recipeChange();
 
 q.get('#recipeAddMulti').on('click',e=>{
-
+  if (rTypes[q.get('#recipeType').value]['type'] == 'key') {
+    
+  }
 })
 
 updateModelFields();

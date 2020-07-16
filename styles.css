@@ -265,7 +265,7 @@ input[type=text]:focus, input[type=number]:focus {
 #shapedLayout {
   width: 60px;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 #shapedLayout input {
@@ -279,15 +279,18 @@ input[type=text]:focus, input[type=number]:focus {
 }
 
 #recipeOpts input[type=number] {
-  width: 10%;
+  width: 5%;
   min-width: 25px;
+  margin-left: 15px;
+  text-align: left !important;
 }
 
 #recipeOpts input {
   float: right;
+  text-align: right;
 }
 
 #recipeOpts div {
-  margin-top: 10px;
+  margin-top: 15px;
   display: block;
 }
